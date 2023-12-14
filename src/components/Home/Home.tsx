@@ -1,10 +1,16 @@
 import SideNavbar from "../SideNavbar/SideNavbar"
+import { Beer } from "../../types/types"
 
-const Home = () => {
+
+type HomeProps = {
+    beers: Beer[]
+}
+
+const Home = ({ beer }: HomeProps) => {
     return (
     <div>
         <h1>Punk Beer</h1>
-        <SideNavbar />
+        <SideNavbar beer={beer} />
     </div>
     )
 }
