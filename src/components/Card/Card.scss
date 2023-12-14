@@ -1,0 +1,38 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    margin: 10px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        color: #333;
+        margin: 0.5rem 1rem;
+    }
+
+    &__tagline {
+        font-size: 1rem;
+        color: #666;
+        margin: 0 1rem;
+    }
+
+    &__description {
+        font-size: 0.9rem;
+        color: #333;
+        margin: 1rem;
+        line-height: 1.4;
+    }
+}
