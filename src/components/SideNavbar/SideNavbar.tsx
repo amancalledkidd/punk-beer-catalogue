@@ -1,14 +1,13 @@
-import { useState, FormEvent } from "react"
+import { FormEvent } from "react"
 import SearchBox from "../SearchBox/SearchBox"
-import { Beer } from "../../types/types"
 
 type SideNavbarProps = {
-    beer: Beer[]
+    searchBeer: string;
+    setSearchBeer: (searchBeer: string) => void;
 }
 
-const SideNavbar = ({ beer }: SideNavbarProps) => {
-    const [searchBeer, setSearchBeer] = useState<string>("")
-
+const SideNavbar = ({ searchBeer, setSearchBeer }: SideNavbarProps) => {
+    
 
     const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
         const searchTerm = event.currentTarget.value
