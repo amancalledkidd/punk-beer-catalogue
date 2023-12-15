@@ -8,7 +8,6 @@ type SideNavbarProps = {
 
 const SideNavbar = ({ searchBeer, setSearchBeer }: SideNavbarProps) => {
     
-
     const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
         const searchTerm = event.currentTarget.value
         setSearchBeer(searchTerm)
