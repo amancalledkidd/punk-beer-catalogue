@@ -2,19 +2,37 @@ import { Beer } from "../../types/types"
 import CardList from "../CardList/CardList"
 
 type MainProps = {
-    beers: Beer[]
+    beers: Beer[];
     searchBeer: string;
+    filters: string[];
 }
 
-const Main = ({ beers, searchBeer }: MainProps) => {
+const Main = ({ beers, searchBeer, filters }: MainProps) => {
 
-    const searchBeerResult = beers.filter(beer => beer.name.toLowerCase().includes(searchBeer.toLowerCase()))
+    const filterAndSearchBeers = (): Beer[] => {
+        return beers.filter(beer => {
+            if (searchBeer && !beer.name.toLowerCase().includes(searchBeer.toLowerCase())) {
+                return false;
+            }
+
+            if (filters.includes('High Alcohol') && beer.abv <= 6) {
+                return false;
+            }
+            if (filters.includes('Classic Range') && Number(beer.first_brewed) >= 2010) {
+                return false;
+            }
+            if (filters.includes('High Acidity') && beer.ph >= 4) {
+                return false;
+            }
+
+            return true;
+        })
+    }
 
 
     return (
         <div className="main-section">
-            {searchBeer === "" && <CardList beers={beers} />}
-            <CardList beers={searchBeerResult} />
+            <CardList beers={filterAndSearchBeers()} />
         </div>
     )
 }

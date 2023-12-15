@@ -11,14 +11,24 @@ type HomeProps = {
 
 const Home = ({ beers }: HomeProps) => {
     const [searchBeer, setSearchBeer] = useState<string>("")
+    const [filters, setFilters] = useState<string[]>([])
 
     return (
     <div className="home">
         <section className="home__side-navbar">
-            <SideNavbar searchBeer={searchBeer} setSearchBeer={setSearchBeer} />
+            <SideNavbar 
+                searchBeer={searchBeer} 
+                setSearchBeer={setSearchBeer} 
+                filters={filters}
+                setFilters={setFilters}
+                />
         </section>
         <section className="home__main">
-            <Main beers={beers} searchBeer={searchBeer} />
+            <Main 
+                beers={beers} 
+                searchBeer={searchBeer} 
+                filters={filters}
+            />
         </section>
         
         
