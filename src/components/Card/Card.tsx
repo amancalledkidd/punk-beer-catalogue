@@ -1,4 +1,5 @@
 import { Beer } from "../../types/types"
+import './Card.scss'
 
 type CardProps = {
     beer: Beer;

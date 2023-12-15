@@ -2,10 +2,11 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     background-color: #fff;
     margin: 10px;
     transition: box-shadow 0.3s ease;
+    width: calc(100% - 20px); // Full width minus margin on small screens
+    box-sizing: border-box;
 
     &:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -15,10 +16,13 @@
         width: 100%;
         height: auto;
         display: block;
+        max-height: 200px;
+        object-fit: contain;
+        object-position: center;
     }
 
     &__title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #333;
         margin: 0.5rem 1rem;
     }
@@ -34,5 +38,17 @@
         color: #333;
         margin: 1rem;
         line-height: 1.4;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .card {
+        width: calc(33.333% - 20px); 
+        float: left;
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
     }
 }

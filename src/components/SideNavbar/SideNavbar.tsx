@@ -1,4 +1,4 @@
-import { useState, FormEvent, FormEventHandler } from "react"
+import { useState, FormEvent } from "react"
 import SearchBox from "../SearchBox/SearchBox"
 import { Beer } from "../../types/types"
 
@@ -16,10 +16,9 @@ const SideNavbar = ({ beer }: SideNavbarProps) => {
     }
 
 
-
     return (
         <div className="side-navbar">
-            <SearchBox label="beer" value={searchBeer} handleSearchInput={handleSearchInput}/>
+            <SearchBox label="Beer" value={searchBeer} handleSearchInput={handleSearchInput}/>
         </div>
     )
 }
