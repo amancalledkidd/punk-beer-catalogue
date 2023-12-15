@@ -6,6 +6,8 @@
     margin: 10px;
     transition: box-shadow 0.3s ease;
     width: calc(100% - 20px); // Full width minus margin on small screens
+    min-width: 200px;
+    max-width: 300px;
     box-sizing: border-box;
 
     &:hover {
@@ -38,11 +40,13 @@
         color: #333;
         margin: 1rem;
         line-height: 1.4;
+        max-height: 80px;
+        overflow: scroll;
     }
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .card {
         width: calc(33.333% - 20px); 
         float: left;

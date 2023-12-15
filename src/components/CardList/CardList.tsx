@@ -7,7 +7,10 @@ type CardListProp = {
 
 const CardList = ({ beers }: CardListProp) => {
     return (
-        <Card beer={beers[0]} />
+        <>
+            {beers.map(beer => <Card beer={beer} />)}
+        </>
+        
     )
 }
 

@@ -1,6 +1,7 @@
 import SideNavbar from "../SideNavbar/SideNavbar"
 import Main from "../Main/Main"
 import { Beer } from "../../types/types"
+import './Home.scss'
 
 
 type HomeProps = {
@@ -9,10 +10,15 @@ type HomeProps = {
 
 const Home = ({ beers }: HomeProps) => {
     return (
-    <div>
-        <h1>Punk Beer</h1>
-        <SideNavbar beer={beers} />
-        <Main beers={beers} />
+    <div className="home">
+        <section className="home__side-navbar">
+            <SideNavbar beer={beers} />
+        </section>
+        <section className="home__main">
+            <Main beers={beers} />
+        </section>
+        
+        
     </div>
     )
 }
