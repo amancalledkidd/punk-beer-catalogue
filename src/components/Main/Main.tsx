@@ -3,13 +3,18 @@ import CardList from "../CardList/CardList"
 
 type MainProps = {
     beers: Beer[]
+    searchBeer: string;
 }
 
-const Main = ({ beers }: MainProps) => {
+const Main = ({ beers, searchBeer }: MainProps) => {
+
+    const searchBeerResult = beers.filter(beer => beer.name.toLowerCase().includes(searchBeer.toLowerCase()))
+
 
     return (
         <div className="main-section">
-            <CardList beers={beers} />
+            {searchBeer === "" && <CardList beers={beers} />}
+            <CardList beers={searchBeerResult} />
         </div>
     )
 }
