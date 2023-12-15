@@ -18,7 +18,6 @@ const FiltersList = ({ filters, setFilters }: FiltersListProps) => {
             updatedFilters = [...filters, input]
         }
         setFilters(updatedFilters)
-        console.log(updatedFilters)
     }
 
 

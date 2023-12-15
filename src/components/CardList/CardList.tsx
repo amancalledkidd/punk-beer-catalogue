@@ -8,7 +8,7 @@ type CardListProp = {
 const CardList = ({ beers }: CardListProp) => {
     return (
         <>
-            {beers.map(beer => <Card beer={beer} />)}
+            {beers.map(beer => <Card key={beer.id} beer={beer} />)}
         </>
         
     )
