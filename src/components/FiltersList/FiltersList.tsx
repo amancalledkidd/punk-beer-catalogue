@@ -25,7 +25,7 @@ const FiltersList = ({ filters, setFilters }: FiltersListProps) => {
         <>
             <FilterItem label="High ABV (>6.0%)" value={"High Alcohol"} onChange={filterChange} />
             <FilterItem label="Classic Range" value={"Classic Range"} onChange={filterChange} />
-            <FilterItem label="High Acidity (>6.0%)" value={"High Acidity"} onChange={filterChange} />
+            <FilterItem label="High Acidity (<4.0%)" value={"High Acidity"} onChange={filterChange} />
         </>
     )
 }

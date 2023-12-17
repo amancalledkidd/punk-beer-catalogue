@@ -15,12 +15,12 @@ const Main = ({ beers, searchBeer, filters }: MainProps) => {
                 return false;
             }
 
-            if (filters.includes('High Alcohol') && beer.abv <= 6) {
-                return false;
-            }
-            if (filters.includes('Classic Range') && Number(beer.first_brewed) >= 2010) {
-                return false;
-            }
+            // if (filters.includes('High Alcohol') && beer.abv <= 6) {
+            //     return false;
+            // }
+            // if (filters.includes('Classic Range') && Number(beer.first_brewed.slice(3)) >= 2010) {
+            //     return false;
+            // }
             if (filters.includes('High Acidity') && beer.ph >= 4) {
                 return false;
             }
@@ -28,7 +28,6 @@ const Main = ({ beers, searchBeer, filters }: MainProps) => {
             return true;
         })
     }
-
 
     return (
         <div className="main-section">

@@ -1,6 +1,7 @@
 import { Beer } from "../../types/types"
 import { Link } from "react-router-dom";
 import Card from "../Card/Card"
+import './CardList.scss'
 
 type CardListProp = {
     beers: Beer[];
