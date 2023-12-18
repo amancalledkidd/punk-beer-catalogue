@@ -1,6 +1,8 @@
 import './BeerInfo.scss'
 import { useParams } from 'react-router-dom'
-import { Beer } from '../../types/types'
+import { Beer } from '../types/types'
+import beerNotFound from '../../assets/images/beer_can_not_found.jpeg'
+
 
 type BeerInfoProps = {
     beers: Beer[]
@@ -20,7 +22,7 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
     return (
         <article className='beer-info'>
             <div className='beer-info__image-container'>
-                <img className='beer-info__image' src={beerResult.image_url ?? undefined} alt={beerResult.name} />
+                <img className='beer-info__image' src={beerResult.image_url ?? beerNotFound} alt={beerResult.name} />
             </div>
             <div className='beer-info__content'>
                 <h1 className='beer-info__title'>{beerResult.name}</h1>

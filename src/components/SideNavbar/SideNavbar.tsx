@@ -7,9 +7,18 @@ type SideNavbarProps = {
     setSearchBeer: (searchBeer: string) => void;
     filters: string[];
     setFilters: (filters: string[]) => void;
+    pageNum: number;
+    setPageNum: (pageNum: number) => void;
 }
 
-const SideNavbar = ({ searchBeer, setSearchBeer, filters, setFilters }: SideNavbarProps) => {
+const SideNavbar = ({ 
+        searchBeer, 
+        setSearchBeer, 
+        filters, 
+        setFilters, 
+        pageNum, 
+        setPageNum 
+    }: SideNavbarProps) => {
     
     const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
         const searchTerm = event.currentTarget.value
@@ -20,7 +29,12 @@ const SideNavbar = ({ searchBeer, setSearchBeer, filters, setFilters }: SideNavb
     return (
         <div className="side-navbar">
             <SearchBox label="Beer" value={searchBeer} handleSearchInput={handleSearchInput}/>
-            <FiltersList filters={filters} setFilters={setFilters} />
+            <FiltersList 
+                filters={filters} 
+                setFilters={setFilters} 
+                pageNum={pageNum}
+                setPageNum={setPageNum}
+            />
         </div>
     )
 }

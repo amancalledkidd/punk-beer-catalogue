@@ -4,20 +4,24 @@ import './FilterRangeItem.scss'
 type FilterRangeItemProps = {
     value: number;
     onChange: ChangeEventHandler<HTMLInputElement>
+    min: number;
+    max: number;
 
 }
 
-const FilterRangeItem = ({ value, onChange}: FilterRangeItemProps) => {
+// Filter Range Item is a range input to 
+const FilterRangeItem = ({ value, onChange, min, max}: FilterRangeItemProps) => {
     return (
         <div className='range-input'>
-            <label>Page: {value}</label>
-            <input 
-                type="range"
-                min={1}
-                max={5}
-                value={value}
-                onChange={onChange}
-            />
+            <label>Page: {value}
+                <input 
+                    type="range"
+                    min={min}
+                    max={max}
+                    value={value}
+                    onChange={onChange}
+                />
+            </label>
         </div>
     )
 }
