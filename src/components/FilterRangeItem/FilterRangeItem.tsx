@@ -1,6 +1,7 @@
 import { ChangeEventHandler } from 'react';
 import './FilterRangeItem.scss'
 
+
 type FilterRangeItemProps = {
     value: number;
     onChange: ChangeEventHandler<HTMLInputElement>
@@ -9,7 +10,7 @@ type FilterRangeItemProps = {
 
 }
 
-// Filter Range Item is a range input to 
+// Filter Range Item is a range input intended to be used as a filter on FilterList
 const FilterRangeItem = ({ value, onChange, min, max}: FilterRangeItemProps) => {
     return (
         <div className='range-input'>
