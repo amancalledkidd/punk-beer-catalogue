@@ -13,14 +13,15 @@ type HomeProps = {
 const Home = ({ beers, setPunkBeers }: HomeProps) => {
     const [searchBeer, setSearchBeer] = useState<string>("")
     const [filters, setFilters] = useState<string[]>([])
+    const [pageNum, setPageNum] = useState<number>(1)
 
 
     useEffect(() => {
-        getBeers(filters)
-      }, [filters])
+        getBeers(filters, pageNum)
+      }, [filters, pageNum])
     
-      const getBeers = async (filters: string[]) => {
-        let url: string = 'https://api.punkapi.com/v2/beers?per_page=80'
+      const getBeers = async (filters: string[], page: number) => {
+        let url: string = `https://api.punkapi.com/v2/beers?per_page=80&page=${page}`
         const params: string[] = []
     
         if (filters.includes('High Alcohol')) {
@@ -29,9 +30,6 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
         }
         if (filters.includes('Classic Range')) {
             params.push('brewed_before=01-2010')
-        }
-        if (filters.includes('High Acidity')) {
-            params.push('ph_lt=4')
         }
         
         if (params.length > 0) {
@@ -52,6 +50,8 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
                 setSearchBeer={setSearchBeer} 
                 filters={filters}
                 setFilters={setFilters}
+                pageNum={pageNum}
+                setPageNum={setPageNum}
                 />
         </section>
         <section className="home__main">
