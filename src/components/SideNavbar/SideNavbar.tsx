@@ -11,6 +11,7 @@ type SideNavbarProps = {
     setPageNum: (pageNum: number) => void;
 }
 
+// SideNavbar is essentially a container and is used to join all the filter and search options used on the beers.
 const SideNavbar = ({ 
         searchBeer, 
         setSearchBeer, 
