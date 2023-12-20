@@ -12,6 +12,7 @@ type HomeProps = {
 // Home is the homepage for the site, this is where app will direct the user at first
 // It stores the Side Navbar and Main components and calls the API for the beer data
 const Home = ({ beers, setPunkBeers }: HomeProps) => {
+    
     // This level stores the filterItems and search state, so it can be passed into the api call and/or main
     const [searchBeer, setSearchBeer] = useState<string>("")
     const [filters, setFilters] = useState<string[]>([])

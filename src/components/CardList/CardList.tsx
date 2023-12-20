@@ -12,6 +12,9 @@ type CardListProp = {
 // Each beer object is injected into a card
 // Each card is wrapped in a link which will take user to a BeerInfo Page
 const CardList = ({ beers }: CardListProp) => {
+
+    if (beers.length === 0) return (<p>No beers over here, please adjust your search parameters.</p>)
+
     return (
         <div className="card-list">
             {beers.map(beer => 
