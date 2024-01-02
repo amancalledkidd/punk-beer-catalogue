@@ -1,6 +1,7 @@
 import { FormEvent } from "react"
 import SearchBox from "../SearchBox/SearchBox"
 import FiltersList from "../FiltersList/FiltersList"
+import './SideNavbar.scss'
 
 type SideNavbarProps = {
     searchBeer: string;
@@ -29,13 +30,17 @@ const SideNavbar = ({
 
     return (
         <div className="side-navbar">
-            <SearchBox label="Beer" value={searchBeer} handleSearchInput={handleSearchInput}/>
-            <FiltersList 
-                filters={filters} 
-                setFilters={setFilters} 
-                pageNum={pageNum}
-                setPageNum={setPageNum}
-            />
+            <div className="side-navbar__search">
+                <SearchBox label="Beer" value={searchBeer} handleSearchInput={handleSearchInput}/>
+            </div>
+            <div className="side-navbar__filters">
+                <FiltersList 
+                    filters={filters} 
+                    setFilters={setFilters} 
+                    pageNum={pageNum}
+                    setPageNum={setPageNum}
+                />
+            </div>
         </div>
     )
 }

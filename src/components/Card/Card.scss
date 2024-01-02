@@ -5,7 +5,7 @@
     background-color: #fff;
     margin: 10px;
     transition: box-shadow 0.3s ease;
-    width: 300px;
+    width: 95%;
     height: 400px;
     box-sizing: border-box;
 
@@ -24,19 +24,19 @@
     }
 
     &__title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: #333;
         margin: 0.5rem 1rem;
     }
 
     &__tagline {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #666;
-        margin: 0 1rem;
+        margin: 0.5rem 1rem;
     }
 
     &__description {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: #333;
         margin: 1rem;
         line-height: 1.4;
@@ -48,11 +48,12 @@
 
 @media (min-width: 600px) {
     .card {
-        width: calc(33.333% - 20px); 
+        width: calc(50% - 20px); 
         float: left;
-
-        &:nth-child(3n) {
-            margin-right: 0;
-        }
+    }
+}
+@media (min-width: 770px) {
+    .card {
+        width: calc(33.3% - 20px); 
     }
 }

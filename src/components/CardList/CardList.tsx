@@ -18,9 +18,12 @@ const CardList = ({ beers }: CardListProp) => {
     return (
         <div className="card-list">
             {beers.map(beer => 
-            <Link  to={`beers/${beer.id}`} key={beer.id} className="card-list__link">
-                <Card key={beer.id} beer={beer} />
-            </Link>)
+            <div className="card-list__card">
+                <Link  to={`beers/${beer.id}`} key={beer.id} className="card-list__link">
+                    <Card key={beer.id} beer={beer} />
+                </Link>
+            </div>
+            )
             }
         </div>
         

@@ -14,13 +14,14 @@ type FilterRangeItemProps = {
 const FilterRangeItem = ({ value, onChange, min, max}: FilterRangeItemProps) => {
     return (
         <div className='range-input'>
-            <label>Page: {value}
+            <label className='range-input__label'>Page: {value}
                 <input 
                     type="range"
                     min={min}
                     max={max}
                     value={value}
                     onChange={onChange}
+                    className='range-input__input'
                 />
             </label>
         </div>

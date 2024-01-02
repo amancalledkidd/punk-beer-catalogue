@@ -1,6 +1,6 @@
 import './BeerInfo.scss'
-import { useParams } from 'react-router-dom'
-import { Beer } from '../types/types'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Beer } from '../../types/types'
 import beerNotFound from '../../assets/images/beer_can_not_found.jpeg'
 
 
@@ -10,6 +10,7 @@ type BeerInfoProps = {
 
 const BeerInfo = ({ beers }: BeerInfoProps) => {
     const { beerId } = useParams()
+    const navigate = useNavigate()
 
     const beerResult = beers.find(beer => {
         if (beer.id === Number(beerId) ) {
@@ -17,10 +18,16 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
         }
     })
 
+    const handleGoBack = () => {
+        navigate(-1)
+    }
+
     if(beerResult === undefined) return <p>Couldn't find a beer with that id</p>
+
 
     return (
         <article className='beer-info'>
+            <button className='beer-info__button' onClick={handleGoBack}>Go Back</button>
             <div className='beer-info__image-container'>
                 <img className='beer-info__image' src={beerResult.image_url ?? beerNotFound} alt={beerResult.name} />
             </div>

@@ -1,4 +1,3 @@
-import './FilterItem.scss'
 import { ChangeEventHandler } from 'react'
 
 // Filter item is passed a label, a onChange function and a value

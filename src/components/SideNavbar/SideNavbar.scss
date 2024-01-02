@@ -1,0 +1,15 @@
+.side-navbar {
+    position: fixed;  
+    top: 0;          
+    left: 0;         
+    width: 200px;    
+    height: 100vh;   
+    overflow-y: auto;
+    background-color: #fff;
+
+    @media (max-width: 768px) { 
+        position: sticky;
+        width: 100%; 
+        height: auto; 
+    }
+}
