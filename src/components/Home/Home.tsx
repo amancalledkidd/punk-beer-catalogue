@@ -22,7 +22,7 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
     // filters and page num are in the dependency array, so useEffect will call getBeers any time they change
     useEffect(() => {
         getBeers(filters, pageNum)
-    }, [filters, pageNum])
+    },[filters, pageNum])
     
 
     // getBeers sends a GET request to the API, using query params.
@@ -44,7 +44,6 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
         if (filters.includes('Classic Range')) {
             params.push('brewed_before=01-2010')
         }
-        
         // if params array is more than 0, the params are added to url, using & to join them so the req is correct
         if (params.length > 0) {
             url += `&${params.join('&')}`
