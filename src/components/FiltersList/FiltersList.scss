@@ -1,3 +1,19 @@
 .filter-list {
     display: grid;
+
+    padding: 5px;
+
+    &__button {
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+        color: rgb(0, 123, 255);
+        margin-bottom: 8px;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+    }
 }

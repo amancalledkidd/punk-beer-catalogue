@@ -1,6 +1,6 @@
 import './FiltersList.scss'
 import FilterItem from '../FilterItem/FilterItem'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 import FilterRangeItem from '../FilterRangeItem/FilterRangeItem';
 
 type FiltersListProps = {
@@ -12,6 +12,8 @@ type FiltersListProps = {
 
 // Filter list will display all the filter items and include any logic for the items
 const FiltersList = ({ filters, setFilters, pageNum, setPageNum }: FiltersListProps) => {
+
+    const [showFilters, setShowFilters] = useState<boolean>(false)
     
     // Filter Change is to be used with Filter items with checkboxes.
     // The filters from FilterItems are stored in a state Array at the Home Level.
@@ -34,13 +36,24 @@ const FiltersList = ({ filters, setFilters, pageNum, setPageNum }: FiltersListPr
         setPageNum(input)
     }
 
+    const filtersButton = showFilters ? 'Filters -' : 'Filters +'
+
+    const handleShowFilters = () => {
+        setShowFilters(!showFilters)
+    }
+
 
     return (
         <div className='filter-list'> 
-            <FilterRangeItem value={pageNum} onChange={pageChange} min={1} max={5} /> 
-            <FilterItem label="High ABV (>6.0%)" value={"High Alcohol"} onChange={filterChange} />
-            <FilterItem label="Classic Range" value={"Classic Range"} onChange={filterChange} />
-            <FilterItem label="High Acidity (<4.0%)" value={"High Acidity"} onChange={filterChange} />
+            <p className='filter-list__button' onClick={handleShowFilters}>{filtersButton}</p>
+            {showFilters && (
+                <>
+                    <FilterRangeItem value={pageNum} onChange={pageChange} min={1} max={5} /> 
+                    <FilterItem label="High ABV (>6.0%)" value={"High Alcohol"} onChange={filterChange} />
+                    <FilterItem label="Classic Range" value={"Classic Range"} onChange={filterChange} />
+                    <FilterItem label="High Acidity (<4.0%)" value={"High Acidity"} onChange={filterChange} />
+                </>
+            )}
         </div>
     )
 }

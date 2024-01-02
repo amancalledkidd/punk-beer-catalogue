@@ -39,7 +39,7 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
         // checks filter array for filter, if filter is there. query param is added to array
         if (filters.includes('High Alcohol')) {
             params.push('abv_gt=6');
-            console.log('Test')
+
         }
         if (filters.includes('Classic Range')) {
             params.push('brewed_before=01-2010')
@@ -53,7 +53,6 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
         const response = await fetch(url)
         const data: Beer[] = await response.json();
         setPunkBeers(data)
-        console.log(data)
     }
 
     return (

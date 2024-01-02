@@ -9,12 +9,17 @@ type CardProps = {
 
 //  beerNotFound is a image that is used if the beer does not have one
 const Card = ({ beer }: CardProps) => {
+
+    //  Regex to split the beer description at the first full stop, avoids decimals being split
+    const regex = /(?<!\d)\.[\s\n]+(?=[A-Z])/;
+    const shortBeerDescription = beer.description.split(regex)[0] + '.'
+
     return (
         <div className="card">
             <img className="card__image" src={beer.image_url ?? beerNotFound} alt={beer.name} />
             <h1 className="card__title">{beer.name}</h1>
             <h3 className="card__tagline">{beer.tagline}</h3>
-            <p className="card__description">{beer.description}</p>
+            <p className="card__description">{shortBeerDescription}</p>
         </div>
     )
 }
