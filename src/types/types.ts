@@ -52,7 +52,7 @@ type Fermentation = {
 
 type MashTemp = {
   temp: Volume;
-  duration: number;
+  duration: number | null;
 };
 
 type Volume = {
