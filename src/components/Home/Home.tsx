@@ -28,7 +28,7 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
     // getBeers sends a GET request to the API, using query params.
     // filters: is an array of strings from the checkbox FilterItems.
     // page: is a number from the range FilterItems
-    const getBeers = async (filters: string[], page: number) => {
+    const getBeers = async (filters: string[], page: number, ) => {
         // url is includes per page parameter at 80, to get the most beers back possible
         // Then include the page parameter, so the user can access all beers
         let url: string = `https://api.punkapi.com/v2/beers?per_page=80&page=${page}`
@@ -48,6 +48,11 @@ const Home = ({ beers, setPunkBeers }: HomeProps) => {
         if (params.length > 0) {
             url += `&${params.join('&')}`
         }
+
+        // if (searchBeer.length > 0) {
+        //     url += `&${searchBeer}`
+        // }
+        
         // get data back then store in state for later use
         const response = await fetch(url)
         const data: Beer[] = await response.json();

@@ -43,7 +43,7 @@ type Malt = {
 type Method = {
   mash_temp: MashTemp[];
   fermentation: Fermentation;
-  twist?: any;
+  twist?: null | string;
 };
 
 type Fermentation = {
